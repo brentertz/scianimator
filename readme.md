@@ -65,7 +65,7 @@ What settings/options are available?
 * <strong>images:</strong> (default: []) // Array of images to be used in animation
 * <strong>controlContainer:</strong> (default: null) // Optional, container where should controls be placed. eg) $('#myDiv')  Defaults to selector element.
 * <strong>controlPosition:</strong> (default: bottom) // Optional. top or bottom
-* <strong>controls:</strong> (default: all) // Which controls should be displayed.  ALL, NONE or an array of any of the following ['first', 'previous', 'play', 'next', 'last', 'navigator', 'loopMode', 'speed'] - orderable. 		
+* <strong>controls:</strong> (default: all) // Which controls should be displayed.  all, none or an array of any of the following ['first', 'previous', 'play', 'next', 'last', 'navigator', 'loopMode', 'speed'] - orderable. 		
 * <strong>defaultFrame:</strong> (default: 0) // The default frame to display - number [0-9] or keywords 'first' or 'last'
 * <strong>delay:</strong> (default: 500) // Controls animation speed - milliseconds between frames
 * <strong>delayStep:</strong> (default: 250) // milliseconds - the step increment used when changing speed
@@ -109,7 +109,6 @@ If your desired browser/version is not listed, it does not necessarily mean that
 ## TODO Items ##
 Aside from resolving the KNOWN ISSUES, the following items are in consideration for future updates.  Feel free to recommend any of these or make additional suggestions.
 
-* Use more appropriate UTF-8 symbols for browsers that support them. (non-IE)
 * Increase font size and decrease padding for elements using UTF8 icons
 * Support for `<br />` element or new line in controls list
 * Enable/disable controls as needed in UI - eg) max speed reached, disable +
