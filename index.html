@@ -31,13 +31,19 @@
     .footer { text-align:center; padding-top:30px; font-style: italic; }
 	</style>
 	
+	<!-- Include the SciAnimator CSS -->
+	<link rel="stylesheet" href="https://github.com/brentertz/scianimator/raw/master/assets/css/scianimator.css" />
+
+	<!-- Include the ExplorerCanvas script for IE-->
+	<!--[if IE lt 9]><script src="https://github.com/brentertz/scianimator/raw/master/assets/js/excanvas.compiled.js"></script><![endif]-->	
+	
 </head>
 
 <body>
   <a href="http://github.com/brentertz/scianimator"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
   <div id="container">
-
+	
     <div class="download">
       <a href="http://github.com/brentertz/scianimator/zipball/master">
         <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
@@ -49,10 +55,16 @@
       <span class="small">by <a href="http://github.com/brentertz">brentertz</a></span></h1>
 
     <div class="description">
-      
-    </div>
+      Scientific Image Animator Plugin for jQuery
+    </div>	
 
-    
+	<h2>Documentation</h2>
+	<p><a href="https://github.com/brentertz/scianimator#readme">For more information, please have a look at the README.</a></p>
+
+	<h2>Examples</h2>	
+	<!-- Container elements in which SciAnimators will go -->
+	<div id="scianimator1"></div>
+	<div id="scianimator2"></div>
 
     <h2>Download</h2>
     <p>
@@ -68,9 +80,17 @@
     <div class="footer">
       get the source code on GitHub : <a href="http://github.com/brentertz/scianimator">brentertz/scianimator</a>
     </div>
-
   </div>
 
-  
+  <!-- Include jQuery -->
+  <script src="https://github.com/brentertz/scianimator/raw/master/assets/js/jquery-1.4.4.min.js"></script>
+
+  <!-- Include SciAnimator script. Choose your compression level. -->
+  <script src="https://github.com/brentertz/scianimator/raw/master/assets/js/jquery.scianimator.pack.js"></script>
+  <!-- <script src="https://github.com/brentertz/scianimator/raw/master/assets/js/jquery.scianimator.min.js"></script> -->
+  <!-- <script src="https://github.com/brentertz/scianimator/raw/master/assets/js/jquery.scianimator.js"></script> -->
+
+  <!-- Invoke SciAnimator via your own script -->
+  <script src="assets/js/index.js"></script>
 </body>
 </html>
