@@ -1,7 +1,7 @@
 # SciAnimator - Scientific Image Animator Plugin for jQuery #
 [http://github.com/brentertz/scianimator](http://github.com/brentertz/scianimator)
 
-Version: 0.9, Last updated: 12/19/2010
+Version: 1.0, Last updated: 12/20/2010
 
 SciAnimator provides a simple yet powerful interface for animating a series of images.
 
@@ -84,7 +84,6 @@ If your desired browser/version is not listed, it does not necessarily mean that
 * Safari 4,5
 
 ## Known Issues ##
-* IE6 control text color not being picked up properly.  Conflicts with a:hover color.
 * IE7 did not respond to `<ctrl>`+click to disable frames, but I was testing on a VM.  Can anyone verify this behavior?	
 
 ## TODO Items ##
@@ -106,6 +105,7 @@ Aside from resolving the KNOWN ISSUES, the following items are in consideration 
 
 ## Release History ##
 * 0.9	- (12/19/2010) Initial checkin. This is a pre-release.  I want to complete a couple more of the TODO items before initial completion.
+* 1.0	- (12/20/2010) Initial complete.
 
 ## License ##
 Copyright (c) 2010 Brent Ertz  
