@@ -78,20 +78,19 @@ Information about what version or versions of jQuery this plugin has been tested
 ### Browsers Tested ###
 If your desired browser/version is not listed, it does not necessarily mean that it does not work, but rather that it hasn't yet been tested.
 
-* Internet Explorer 6-8
+* Internet Explorer 6-9
 * Firefox 3-4 (FF2 needs a little CSS love, but functionally it appears ok)
 * Chrome 6,8
 * Safari 4,5
 
 ## Known Issues ##
-* IE has trouble with some of the UTF-8 symbols (first, last, play) - Perhaps try a font with better support or find alternate UTF-8 symbols.
 * IE6 control text color not being picked up properly.  Conflicts with a:hover color.
 * IE7 did not respond to `<ctrl>`+click to disable frames, but I was testing on a VM.  Can anyone verify this behavior?	
 
 ## TODO Items ##
 Aside from resolving the KNOWN ISSUES, the following items are in consideration for future updates.  Feel free to recommend any of these or make additional suggestions.
 
-* Test in IE9
+* Use more appropriate UTF-8 symbols for browsers that support them. (non-IE)
 * Increase font size and decrease padding for elements using UTF8 icons
 * Support for `<br />` element or new line in controls list
 * Enable/disable controls as needed in UI - eg) max speed reached, disable +

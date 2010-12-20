@@ -63,10 +63,10 @@
 				'next':'Next', 
 				'last':'Last',
 				'loop': {
-					'tip': 'Click to toggle loop mode',
-					'loop': 'Loop',
-					'sweep': 'Sweep',
-					'none': 'None'					
+					'tip':'Click to toggle loop mode',
+					'loop':'Loop',
+					'sweep':'Sweep',
+					'none':'None'					
 				},
 				'speed': {
 					'speed':'Speed',
@@ -81,12 +81,12 @@
 				}
 			},
 			'utf8': { 
-				'first':'&#8676;', 
+				'first':'|&#8592;', //&#8676;
 				'previous':'&#8592;', 
-				'play':'&#9656;', 
-				'stop':'&#9642;', 
+				'play':'&#9658;', //'&#9656;', 
+				'stop':'&#9632;', //'&#9642;', 
 				'next':'&#8594;', 
-				'last':'&#8677;'
+				'last':'&#8594;|' //&#8677;
 			}
 		}		
 	};
@@ -202,7 +202,7 @@
 			var $canvas = $('<canvas />').attr('width',data.settings.width).attr('height',data.settings.height);
 			$this.append($canvas[0]);
 			
-			if ($.browser.msie)
+			if ($.browser.msie && $.browser.version < 9)
 				G_vmlCanvasManager.initElement($canvas[0]); // Initialize canvas for IE - @see http://code.google.com/p/explorercanvas
 
 			if ($canvas[0].getContext) {
