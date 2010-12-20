@@ -14,7 +14,7 @@ SciAnimator provides a simple yet powerful interface for animating a series of i
 
 ## Demo ##
 
-http://brentertz.github.com/scianimator/
+[http://brentertz.github.com/scianimator/](http://brentertz.github.com/scianimator/)
 
 ## Examples ##
 These examples illustrate a few ways in which this plugin can be used.  
