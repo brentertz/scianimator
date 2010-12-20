@@ -35,7 +35,6 @@
 }
 .scianimator a,
 .scianimator a:visited {
-	color: #000;
 	cursor: pointer;
 	display: inline-block;
 	padding: 5px 10px;
@@ -44,9 +43,6 @@
 .scianimator a.small,
 .scianimator a:visited.small {
 	padding: 1px 2px;
-}
-.scianimator a:hover {
-	color: #666;
 }
 .scianimator a:active {
 	top: 1px;
