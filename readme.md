@@ -59,12 +59,31 @@ Select the element which will hold the animator. (Perhaps a `<div id="scianimato
 	$('#scianimator').scianimator('showStatus', {status:'Hello Ladies...', timeout:3000});  
 
 ## Settings/Options ##
-What settings/options are available? I'll document these more soon, but for now, please see 
+What settings/options are available?
 
+* <strong>debug:</strong> (default:false) // Write debug info to console?
+* <strong>images:</strong> (default: []) // Array of images to be used in animation
+* <strong>controlContainer:</strong> (default: null) // Optional, container where should controls be placed. eg) $('#myDiv')  Defaults to selector element.
+* <strong>controlPosition:</strong> (default: bottom) // Optional. top or bottom
+* <strong>controls:</strong> (default: all) // Which controls should be displayed.  ALL, NONE or an array of any of the following ['first', 'previous', 'play', 'next', 'last', 'navigator', 'loopMode', 'speed'] - orderable. 		
+* <strong>defaultFrame:</strong> (default: 0) // The default frame to display - number [0-9] or keywords 'first' or 'last'
+* <strong>delay:</strong> (default: 500) // Controls animation speed - milliseconds between frames
+* <strong>delayStep:</strong> (default: 250) // milliseconds - the step increment used when changing speed
+* <strong>delayMin:</strong> (default: 25) // Minimum delay between frames - milliseconds
+* <strong>delayMax:</strong> (default: 5000) // Maximum delay between frames - milliseconds
+* <strong>dwellMultiplier:</strong> (default: 2) // Multiplier used to auto-calculate the length of the dwell (pause on first/last frames) ~N*delay
+* <strong>height:</strong> (default: 600) // Height of canvas - pixels - not %
+* <strong>width:</strong> (default: 600) // Height of canvas - pixels - not %
+* <strong>theme:</strong> (default: light) // Can be any of the predefined CSS themes - light (default), dark, blue - or use null or '' for base styles only
+* <strong>utf8:</strong> (default: true), // Use UTF-8 labels where possible? eg) for symbols
+* <strong>loopMode:</strong> (default: loop), // Loop mode - loop, sweep, or none		
+* <strong>labels:</strong> (default: {see code})// Labels used in UI controls.  Individual or all defaults may be overridden by passing in a replacement object with the same structure.  Note, only those properties being replaced are necessary.
+
+For more details, check out the code - look for:
 `$.fn.scianimator.defaults` in [http://github.com/brentertz/scianimator/assets/js/jquery.scianimator.js](jquery.scianimator.js).
 
 ## Dependencies ##
-SciAnimator relies on the 3rd party 'ExplorerCanvas' script to provide HTML5 canvas element support to Internet Explorer.  
+SciAnimator relies on the 3rd party 'ExplorerCanvas' script to provide HTML5 canvas element support to Internet Explorer < 9.  
 
 Please see [http://code.google.com/p/explorercanvas/](http://code.google.com/p/explorercanvas/) for more information.
 
@@ -82,6 +101,7 @@ If your desired browser/version is not listed, it does not necessarily mean that
 * Firefox 3-4 (FF2 needs a little CSS love, but functionally it appears ok)
 * Chrome 6,8
 * Safari 4,5
+* iPhone - Mobile Safari
 
 ## Known Issues ##
 * IE7 did not respond to `<ctrl>`+click to disable frames, but I was testing on a VM.  Can anyone verify this behavior?	
