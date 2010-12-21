@@ -50,13 +50,14 @@
 				'utf8': false
 			});
 			
-			// Construct 2nd animator
+			/* Construct 2nd animator
 			$('#scianimator2').scianimator({
 				'images': Index.images_ir,
 				'height': 470,
 				'width': 640,
 				'theme': 'dark'
 			});
+			*/
 		}
 	};
 	

@@ -38,6 +38,7 @@
 	 * Defaults may be overridden on an instance specific basis by passing an options object to constructor.  Any changes will be merged in.
 	 */
 	$.fn.scianimator.defaults = {
+		'autoRefresh': false, // false to disable, otherwise milliseconds between auto refreshes
 		'debug': false, // Write debug info to console?
 		'images': [],
 		'controlContainer': null, // Optional, container where should controls be placed. eg) $('#myDiv')
@@ -77,7 +78,8 @@
 					'tip': 'Click to go to frame; &lt;ctrl&gt;+click to enable/disable frame.'
 				},
 				'status': {
-					'preload': 'Preloading images...'
+					'preload': 'Preloading images...',
+					'refresh': 'Refreshing images from source...'
 				}
 			},
 			'utf8': { 
@@ -111,6 +113,7 @@
 					target: $this,
 					context: null, // Canvas 2D drawing context
 					animationTimer: null, // The timer used for animating the images
+					autoRefreshTimer: null, // The timer used for handling image auto-refresh from source
 					playMode: CONSTANTS.PLAY_MODE_STOPPED, // Play mode - Is the animation running?
 					frames: [],
 					currentFrame: settings.defaultFrame,
@@ -123,7 +126,7 @@
 					controls: {} // Instance specific ID references to controls
 				});
 
-				$this.scianimator('preload') // Preload images
+				$this.scianimator('loadImages', 'preload') // Preload images
 					.scianimator('container') // Initialize the container
 					.scianimator('canvas') // Initialize the canvas
 					.scianimator('controls') // Initialize the controls
@@ -773,15 +776,19 @@
 		},
 		
 		/**
-		 * Preload images
+		 * Load images
+		 * @param type - preload or refresh
 		 */
-		preload: function() {
-			debug('preload images');
+		loadImages: function(type) {
+			debug('loadImages');
 
 			var $this = $(this);
 			var data = $this.data('scianimator');
 
-			$this.scianimator('showStatus', {'status':data.settings.labels.text.status.preload});
+			if ('preload' === type)
+				$this.scianimator('showStatus', {'status':data.settings.labels.text.status.preload});
+			else if ('refresh' === type)
+				$this.scianimator('showStatus', {'status':data.settings.labels.text.status.refresh});
 
 			data.frames = [];
 			var count = 0;
@@ -789,17 +796,19 @@
 				var image = $('<img />')
 					.load(function() {
 						if (++count === data.settings.images.length)
-						 	$this.scianimator('onPreloadComplete'); // Callback method
-						$(this).unbind(); // Prevent this handler from being used later
+						 	$this.scianimator('onLoadImagesComplete'); // Callback method
 					}).error(function() {
 						debug('Image failed to load for frame #'+frame+' : '+src);				
 						$this.scianimator('enableDisable', {'frame':frame,'state':'disable'}); // Disable the frame for the image that failed
 						
 						if (++count === data.settings.images.length)
-						 	$this.scianimator('onPreloadComplete'); // Callback method
-						$(this).unbind(); // Prevent this handler from being used later
-					})
-					.attr('src', src);
+						 	$this.scianimator('onLoadImagesComplete'); // Callback method
+					});
+					
+				if ('refresh' === type)
+					image.attr('src', randomizeUrl(src)); // force refresh
+				else
+					image.attr('src', src);
 					
 				data.frames.push(image[0]); // Immediately push into frames so controls can build properly
 		    });
@@ -809,15 +818,33 @@
 		},
 		
 		/**
-		 * On Preload Complete - Callback method for when images have been preloaded
+		 * On Load Images Complete - Callback method for when images have been loaded
 		 */
-		onPreloadComplete: function() {
-			debug('onPreloadComplete');			
+		onLoadImagesComplete: function() {
+			debug('onLoadImagesComplete');			
 
 			var $this = $(this);
 			var data = $this.data('scianimator');
 
+			// Start the autoRefresh timer - if necessary
+			if (data.settings.autoRefresh !== false)
+				data.autoRefreshTimer = self.setTimeout(function() { 
+					$this.scianimator('refresh');
+				}, parseInt(data.settings.autoRefresh, 10));
+
 			$this.scianimator('hideStatus');
+		},
+		
+		/**
+		 * Refresh images from source, bypassing browser cache
+		 */
+		refresh: function() {
+			debug('refresh');
+			
+			var $this = $(this);
+			var data = $this.data('scianimator');			
+			
+			$this.scianimator('loadImages', 'refresh');
 		},
 		
 		/**
@@ -880,5 +907,29 @@
 	function debug(value) {
 		if (settings.debug && window.console && window.console.log)
 			window.console.log(value);
+	}
+	
+	/**
+	 * Appends a random number to a URL - private utility method
+	 *    eg) rand=.012345677890
+	 * Will replace existing 'rand' param if already exists.
+	 * @param url - the url to be randomized
+	 * @return the randomized url
+	 */
+	function randomizeUrl(url)
+	{
+		var root = url;
+		var pos = url.indexOf('?');
+		var qs = '';
+		if (pos != -1) // found ?
+		{
+			root = url.substring(0,pos); 
+			qs = url.substring(pos);
+			qs = qs.replace(/[(?|&)]rand=[^&]+/g,'');
+		}
+		
+		url = root + ((qs.length) ? qs+'&' : qs+'?');
+		url += 'rand=' + Math.random();
+		return url;		
 	}
 })(jQuery);

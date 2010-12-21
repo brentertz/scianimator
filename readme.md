@@ -1,7 +1,7 @@
 # SciAnimator - Scientific Image Animator Plugin for jQuery #
 [http://github.com/brentertz/scianimator](http://github.com/brentertz/scianimator)
 
-Version: 1.0, Last updated: 12/20/2010
+Version: 1.1, Last updated: 12/21/2010
 
 SciAnimator provides a simple yet powerful interface for animating a series of images.
 
@@ -61,23 +61,24 @@ Select the element which will hold the animator. (Perhaps a `<div id="scianimato
 ## Settings/Options ##
 What settings/options are available?
 
-* <strong>debug:</strong> (default:false) // Write debug info to console?
-* <strong>images:</strong> (default: []) // Array of images to be used in animation
-* <strong>controlContainer:</strong> (default: null) // Optional, container where should controls be placed. eg) $('#myDiv')  Defaults to selector element.
-* <strong>controlPosition:</strong> (default: bottom) // Optional. top or bottom
-* <strong>controls:</strong> (default: all) // Which controls should be displayed.  all, none or an array of any of the following ['first', 'previous', 'play', 'next', 'last', 'navigator', 'loopMode', 'speed'] - orderable. 		
-* <strong>defaultFrame:</strong> (default: 0) // The default frame to display - number [0-9] or keywords 'first' or 'last'
-* <strong>delay:</strong> (default: 500) // Controls animation speed - milliseconds between frames
-* <strong>delayStep:</strong> (default: 250) // milliseconds - the step increment used when changing speed
-* <strong>delayMin:</strong> (default: 25) // Minimum delay between frames - milliseconds
-* <strong>delayMax:</strong> (default: 5000) // Maximum delay between frames - milliseconds
-* <strong>dwellMultiplier:</strong> (default: 2) // Multiplier used to auto-calculate the length of the dwell (pause on first/last frames) ~N*delay
-* <strong>height:</strong> (default: 600) // Height of canvas - pixels - not %
-* <strong>width:</strong> (default: 600) // Height of canvas - pixels - not %
-* <strong>theme:</strong> (default: light) // Can be any of the predefined CSS themes - light (default), dark, blue - or use null or '' for base styles only
-* <strong>utf8:</strong> (default: true), // Use UTF-8 labels where possible? eg) for symbols
-* <strong>loopMode:</strong> (default: loop), // Loop mode - loop, sweep, or none		
-* <strong>labels:</strong> (default: {see code})// Labels used in UI controls.  Individual or all defaults may be overridden by passing in a replacement object with the same structure.  Note, only those properties being replaced are necessary.
+* <strong>autoRefresh</strong>: (default:false) - false to disable, otherwise milliseconds between auto refreshes
+* <strong>debug:</strong> (default:false) - Write debug info to console?
+* <strong>images:</strong> (default: []) - Array of images to be used in animation
+* <strong>controlContainer:</strong> (default: null) - Optional, container where should controls be placed. eg) $('#myDiv')  Defaults to selector element.
+* <strong>controlPosition:</strong> (default: bottom) - Optional. top or bottom
+* <strong>controls:</strong> (default: all) - Which controls should be displayed.  all, none or an array of any of the following ['first', 'previous', 'play', 'next', 'last', 'navigator', 'loopMode', 'speed'] - orderable. 		
+* <strong>defaultFrame:</strong> (default: 0) - The default frame to display - number [0-9] or keywords 'first' or 'last'
+* <strong>delay:</strong> (default: 500) - Controls animation speed - milliseconds between frames
+* <strong>delayStep:</strong> (default: 250) - milliseconds - the step increment used when changing speed
+* <strong>delayMin:</strong> (default: 25) - Minimum delay between frames - milliseconds
+* <strong>delayMax:</strong> (default: 5000) - Maximum delay between frames - milliseconds
+* <strong>dwellMultiplier:</strong> (default: 2) - Multiplier used to auto-calculate the length of the dwell (pause on first/last frames) ~N*delay
+* <strong>height:</strong> (default: 600) - Height of canvas - pixels - not %
+* <strong>width:</strong> (default: 600) - Height of canvas - pixels - not %
+* <strong>theme:</strong> (default: light) - Can be any of the predefined CSS themes - light (default), dark, blue - or use null or '' for base styles only
+* <strong>utf8:</strong> (default: true), - Use UTF-8 labels where possible? eg) for symbols
+* <strong>loopMode:</strong> (default: loop), - Loop mode - loop, sweep, or none		
+* <strong>labels:</strong> (default: {see code}) - Labels used in UI controls.  Individual or all defaults may be overridden by passing in a replacement object with the same structure.  Note, only those properties being replaced are necessary.
 
 For more details, check out the code - look for:
 `$.fn.scianimator.defaults` in [http://github.com/brentertz/scianimator/assets/js/jquery.scianimator.js](jquery.scianimator.js).
@@ -125,6 +126,7 @@ Aside from resolving the KNOWN ISSUES, the following items are in consideration 
 ## Release History ##
 * 0.9	- (12/19/2010) Initial checkin. This is a pre-release.  I want to complete a couple more of the TODO items before initial completion.
 * 1.0	- (12/20/2010) Initial complete.
+* 1.1	- (12/21/2010) Added autoRefresh support, which can reload images from source at regular intervals, bypassing the browser cache. By default, autoRefresh is disabled.
 
 ## License ##
 Copyright (c) 2010 Brent Ertz  
