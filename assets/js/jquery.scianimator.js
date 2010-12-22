@@ -45,8 +45,8 @@
 		'controlPosition': CONSTANTS.POSITION_BOTTOM, // Optional. top or bottom
 		'controls': CONSTANTS.CONTROLS_ALL, // Which controls should be displayed.  ALL, NONE or an array ['first', 'previous', 'play', 'next', 'last', 'navigator', 'loopMode', 'speed'] - orderable. 		
 		'defaultFrame': 0, // The default frame to display - number [0-9] or keywords 'first' or 'last'
-		'delay': 500, // Controls animation speed - milliseconds between frames
-		'delayStep': 250, // milliseconds
+		'delay': 250, // Controls animation speed - milliseconds between frames
+		'delayStep': 100, // milliseconds
 		'delayMin': 25, // Minimum delay - milliseconds
 		'delayMax': 5000, // Maximum delay - milliseconds
 		'dwellMultiplier': 2, // Used to autocalculate the length of the dwell (pause on first/last frames) ~N*delay

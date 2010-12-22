@@ -68,8 +68,8 @@ What settings/options are available?
 * <strong>controlPosition:</strong> (default: bottom) - Optional. top or bottom
 * <strong>controls:</strong> (default: all) - Which controls should be displayed.  all, none or an array of any of the following ['first', 'previous', 'play', 'next', 'last', 'navigator', 'loopMode', 'speed'] - orderable. 		
 * <strong>defaultFrame:</strong> (default: 0) - The default frame to display - number [0-9] or keywords 'first' or 'last'
-* <strong>delay:</strong> (default: 500) - Controls animation speed - milliseconds between frames
-* <strong>delayStep:</strong> (default: 250) - milliseconds - the step increment used when changing speed
+* <strong>delay:</strong> (default: 250) - Controls animation speed - milliseconds between frames
+* <strong>delayStep:</strong> (default: 100) - milliseconds - the step increment used when changing speed
 * <strong>delayMin:</strong> (default: 25) - Minimum delay between frames - milliseconds
 * <strong>delayMax:</strong> (default: 5000) - Maximum delay between frames - milliseconds
 * <strong>dwellMultiplier:</strong> (default: 2) - Multiplier used to auto-calculate the length of the dwell (pause on first/last frames) ~N*delay
