@@ -66,7 +66,7 @@ What settings/options are available?
 * <strong>images:</strong> (default: []) - Array of images to be used in animation
 * <strong>controlContainer:</strong> (default: null) - Optional, container where should controls be placed. eg) $('#myDiv')  Defaults to selector element.
 * <strong>controlPosition:</strong> (default: bottom) - Optional. top or bottom
-* <strong>controls:</strong> (default: all) - Which controls should be displayed.  all, none or an array of any of the following ['first', 'previous', 'play', 'next', 'last', 'navigator', 'loopMode', 'speed'] - orderable. 		
+* <strong>controls:</strong> (default: all) - Which controls should be displayed.  all, none or an array of any of the following ['first', 'previous', 'play', 'next', 'last', 'navigator', 'loop', 'speed'] - orderable. 		
 * <strong>defaultFrame:</strong> (default: 0) - The default frame to display - number [0-9] or keywords 'first' or 'last'
 * <strong>delay:</strong> (default: 250) - Controls animation speed - milliseconds between frames
 * <strong>delayStep:</strong> (default: 100) - milliseconds - the step increment used when changing speed

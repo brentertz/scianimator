@@ -43,7 +43,7 @@
 		'images': [],
 		'controlContainer': null, // Optional, container where should controls be placed. eg) $('#myDiv')
 		'controlPosition': CONSTANTS.POSITION_BOTTOM, // Optional. top or bottom
-		'controls': CONSTANTS.CONTROLS_ALL, // Which controls should be displayed.  ALL, NONE or an array ['first', 'previous', 'play', 'next', 'last', 'navigator', 'loopMode', 'speed'] - orderable. 		
+		'controls': CONSTANTS.CONTROLS_ALL, // Which controls should be displayed.  ALL, NONE or an array ['first', 'previous', 'play', 'next', 'last', 'navigator', 'loop', 'speed'] - orderable. 		
 		'defaultFrame': 0, // The default frame to display - number [0-9] or keywords 'first' or 'last'
 		'delay': 250, // Controls animation speed - milliseconds between frames
 		'delayStep': 100, // milliseconds
