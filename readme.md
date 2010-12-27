@@ -49,7 +49,7 @@ Select the element which will hold the animator. (Perhaps a `<div id="scianimato
 	$.fn.scianimator.defaults.theme = 'blue'; // change default theme  
 
 	$.fn.scianimator.defaults.utf8 = 'false'; // Use text labels rather than UTF8 symbols  
-	$.fn.scianimator.defaults.labels.play = 'Juego'; // l10n/i18n
+	$.fn.scianimator.defaults.labels.text.play = 'Juego'; // l10n/i18n
 	
 	// then create your instances and they will use your custom defaults...
 
