@@ -10,6 +10,7 @@ SciAnimator provides a simple yet powerful interface for animating a series of i
 * Themeable via CSS - comes with 3 different themes, but you can also create your own
 * Easily override default settings
 * Multiple instances per page
+* Keyboard controls
 * Optional console debug output
 
 ## Demo ##
