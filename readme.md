@@ -1,7 +1,7 @@
 # SciAnimator - Scientific Image Animator Plugin for jQuery #
 [http://github.com/brentertz/scianimator](http://github.com/brentertz/scianimator)
 
-Version: 1.1, Last updated: 12/21/2010
+Version: 1.2, Last updated: 12/28/2010
 
 SciAnimator provides a simple yet powerful interface for animating a series of images.
 
@@ -63,13 +63,15 @@ What settings/options are available?
 
 * <strong>autoRefresh</strong>: (default:false) - false to disable, otherwise milliseconds between auto refreshes
 * <strong>debug:</strong> (default:false) - Write debug info to console?
+* <strong>keyboard:</strong> (default:true) - Enable keyboard controls? All instances on page respond to keyboard events.  
+	`<shift>+<left arrow> = first, <left arrow> = previous, <spacebar> or <enter/return> = play/stop, <right arrow> = next, <shift>+<right arrow> = last`
 * <strong>images:</strong> (default: []) - Array of images to be used in animation
 * <strong>controlContainer:</strong> (default: null) - Optional, container where should controls be placed. eg) $('#myDiv')  Defaults to selector element.
 * <strong>controlPosition:</strong> (default: bottom) - Optional. top or bottom
 * <strong>controls:</strong> (default: all) - Which controls should be displayed.  all, none or an array of any of the following ['first', 'previous', 'play', 'next', 'last', 'navigator', 'loop', 'speed'] - orderable. 		
 * <strong>defaultFrame:</strong> (default: 0) - The default frame to display - number [0-9] or keywords 'first' or 'last'
 * <strong>delay:</strong> (default: 250) - Controls animation speed - milliseconds between frames
-* <strong>delayStep:</strong> (default: 100) - milliseconds - the step increment used when changing speed
+* <strong>delayStep:</strong> (default: 50) - milliseconds - the step increment used when changing speed
 * <strong>delayMin:</strong> (default: 25) - Minimum delay between frames - milliseconds
 * <strong>delayMax:</strong> (default: 5000) - Maximum delay between frames - milliseconds
 * <strong>dwellMultiplier:</strong> (default: 2) - Multiplier used to auto-calculate the length of the dwell (pause on first/last frames) ~N*delay
@@ -116,17 +118,18 @@ Aside from resolving the KNOWN ISSUES, the following items are in consideration 
 * Instrument with more status messages - eg) The image for frame 10 failed to load.  Reloading images.
 * Show failed images with alternate color
 * Dwell multiplier controls
-* Cache busting? Probably needed as option - in case pointing at images that get updated on intervals - also perhaps occasional force refresh - interval option?
+* Reload images from source button? (bypass cache)
 * Ability to inject a new set if images, without needing to create a new instance.
 * Image vs. Canvas option
-* Keyboard controls - first, previous, play/stop, next, last
 * Expose other methods/settings for override?
 * Refactor controls method into smaller pieces
+* Use jQueryUI icons option
 
 ## Release History ##
 * 0.9	- (12/19/2010) Initial checkin. This is a pre-release.  I want to complete a couple more of the TODO items before initial completion.
 * 1.0	- (12/20/2010) Initial complete.
 * 1.1	- (12/21/2010) Added autoRefresh support, which can reload images from source at regular intervals, bypassing the browser cache. By default, autoRefresh is disabled.
+* 1.2	- (12/28/2010) Added keyboard control support. Decreased default delayStep. Updated IE conditional comment. Updated documentation.
 
 ## License ##
 Copyright (c) 2010 Brent Ertz  

@@ -39,6 +39,7 @@
 	 */
 	$.fn.scianimator.defaults = {
 		'autoRefresh': false, // false to disable, otherwise milliseconds between auto refreshes
+		'keyboard': true, // Enable keyboard controls? All instances on page respond to keyboard events.
 		'debug': false, // Write debug info to console?
 		'images': [],
 		'controlContainer': null, // Optional, container where should controls be placed. eg) $('#myDiv')
@@ -46,7 +47,7 @@
 		'controls': CONSTANTS.CONTROLS_ALL, // Which controls should be displayed.  ALL, NONE or an array ['first', 'previous', 'play', 'next', 'last', 'navigator', 'loop', 'speed'] - orderable. 		
 		'defaultFrame': 0, // The default frame to display - number [0-9] or keywords 'first' or 'last'
 		'delay': 250, // Controls animation speed - milliseconds between frames
-		'delayStep': 100, // milliseconds
+		'delayStep': 50, // milliseconds
 		'delayMin': 25, // Minimum delay - milliseconds
 		'delayMax': 5000, // Maximum delay - milliseconds
 		'dwellMultiplier': 2, // Used to autocalculate the length of the dwell (pause on first/last frames) ~N*delay
@@ -357,10 +358,51 @@
 				}
 			}
 			
+			// Enable keyboard controls?
+			if (data.settings.keyboard === true)
+				$this.scianimator('keyboard');
+			
 			// Callback method
 			$this.scianimator('onControlsComplete');
 			
 			return $this;
+		},
+		
+		/**
+		 * Keyboard - enable keyboard controls
+		 */
+		keyboard: function() {
+			debug('keyboard');
+			
+			var $this = $(this);
+			var data = $this.data('scianimator');			
+			
+			$(document)
+			//.unbind('keydown.scianimator.controls')
+			.bind('keydown.scianimator.controls', function(event) {
+				if (event.target.tagName != 'INPUT' && event.target.tagName != 'TEXTAREA')
+				{
+					switch (event.keyCode) 
+					{
+						case 13: // enter
+						case 32: // space bar
+							$this.scianimator('playOrStop');
+							break;
+						case 37: // left arrow
+							if (event.shiftKey)
+								$this.scianimator('first');
+							else
+								$this.scianimator('previous');
+							break;
+						case 39: // right arrow
+							if (event.shiftKey)
+								$this.scianimator('last');
+							else
+								$this.scianimator('next');
+							break;							
+					}
+				}
+			});			
 		},
 		
 		/**
@@ -371,8 +413,8 @@
 			
 			var $this = $(this);
 			var data = $this.data('scianimator');
-						
-			$this.scianimator('hilightCurrent');	
+
+			$this.scianimator('hilightCurrent');
 		},
 
 		/**
