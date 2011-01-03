@@ -39,7 +39,7 @@
 		 */
 		init: function() 
 		{
-			$.fn.scianimator.defaults.debug = true;
+			//$.fn.scianimator.defaults.debug = true;
 			$.fn.scianimator.defaults.theme = 'blue';
 
 			// Construct 1st animator
