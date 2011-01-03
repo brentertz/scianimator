@@ -2,36 +2,36 @@
 	Index = {
 		// Visible images
 		images_vis: [
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/vis/20101208_1715_US_vis.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/vis/20101208_1730_US_vis.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/vis/20101208_1745_US_vis.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/vis/20101208_1800_US_vis.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/vis/20101208_1815_US_vis.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/vis/20101208_1845_US_vis.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/vis/20101208_1900_US_vis.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/vis/20101208_1915_US_vis.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/vis/20101208_1930_US_vis.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/vis/20101208_1945_US_vis.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/vis/20101208_2000_US_vis.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/vis/20101208_2015_US_vis.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/vis/20101208_2030_US_vis.jpg"
+			"assets/images/vis/20101208_1715_US_vis.jpg",
+			"assets/images/vis/20101208_1730_US_vis.jpg",
+			"assets/images/vis/20101208_1745_US_vis.jpg",
+			"assets/images/vis/20101208_1800_US_vis.jpg",
+			"assets/images/vis/20101208_1815_US_vis.jpg",
+			"assets/images/vis/20101208_1845_US_vis.jpg",
+			"assets/images/vis/20101208_1900_US_vis.jpg",
+			"assets/images/vis/20101208_1915_US_vis.jpg",
+			"assets/images/vis/20101208_1930_US_vis.jpg",
+			"assets/images/vis/20101208_1945_US_vis.jpg",
+			"assets/images/vis/20101208_2000_US_vis.jpg",
+			"assets/images/vis/20101208_2015_US_vis.jpg",
+			"assets/images/vis/20101208_2030_US_vis.jpg"
 		],
 		
 		// Infrared images
 		images_ir: [
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/ir/20101209_1130_US_ir.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/ir/20101209_1145_US_ir.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/ir/20101209_1200_US_ir.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/ir/20101209_1215_US_ir.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/ir/20101209_1230_US_ir.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/ir/20101209_1245_US_ir.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/ir/20101209_1300_US_ir.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/ir/20101209_1315_US_ir.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/ir/20101209_1330_US_ir.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/ir/20101209_1345_US_ir.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/ir/20101209_1400_US_ir.jpg",
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/ir/20101209_1415_US_ir.jp", // Purposefully invalid to demonstrate how a failed image loads
-			"https://github.com/brentertz/scianimator/raw/master/assets/images/ir/20101209_1430_US_ir.jpg"
+			"assets/images/ir/20101209_1130_US_ir.jpg",
+			"assets/images/ir/20101209_1145_US_ir.jpg",
+			"assets/images/ir/20101209_1200_US_ir.jpg",
+			"assets/images/ir/20101209_1215_US_ir.jpg",
+			"assets/images/ir/20101209_1230_US_ir.jpg",
+			"assets/images/ir/20101209_1245_US_ir.jpg",
+			"assets/images/ir/20101209_1300_US_ir.jpg",
+			"assets/images/ir/20101209_1315_US_ir.jpg",
+			"assets/images/ir/20101209_1330_US_ir.jpg",
+			"assets/images/ir/20101209_1345_US_ir.jpg",
+			"assets/images/ir/20101209_1400_US_ir.jpg",
+			"assets/images/ir/20101209_1415_US_ir.jp", // Purposefully invalid to demonstrate how a failed image loads
+			"assets/images/ir/20101209_1430_US_ir.jpg"
 		],
 	
 		/**
