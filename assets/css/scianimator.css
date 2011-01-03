@@ -18,6 +18,9 @@
 	margin-bottom: 1em;
 	position: relative;
 }
+.scianimator canvas {
+	display: block;
+}
 .scianimator .controls,
 .scianimator .control {
 	border: 1px solid;
