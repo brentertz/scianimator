@@ -1,7 +1,7 @@
 # SciAnimator - Scientific Image Animator Plugin for jQuery #
 [http://github.com/brentertz/scianimator](http://github.com/brentertz/scianimator)
 
-Version: 1.2, Last updated: 12/28/2010
+Version: 1.3, Last updated: 1/3/2011
 
 SciAnimator provides a simple yet powerful interface for animating a series of images.
 
@@ -131,6 +131,7 @@ Aside from resolving the KNOWN ISSUES, the following items are in consideration 
 * 1.0	- (12/20/2010) Initial complete.
 * 1.1	- (12/21/2010) Added autoRefresh support, which can reload images from source at regular intervals, bypassing the browser cache. By default, autoRefresh is disabled.
 * 1.2	- (12/28/2010) Added keyboard control support. Decreased default delayStep. Updated IE conditional comment. Updated documentation.
+* 1.3	- (1/3/2011) Resolves issue with IE8 Canvas - Simply needed CSS -> display:block for canvas element
 
 ## License ##
 Copyright (c) 2010 Brent Ertz  
