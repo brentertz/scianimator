@@ -39,21 +39,19 @@
 		 */
 		init: function() 
 		{
-			$.fn.scianimator.defaults.debug = true;
-			$.fn.scianimator.defaults.theme = 'blue';
+			//$.fn.scianimator.defaults.debug = true;
+			//$.fn.scianimator.defaults.theme = 'blue';
 
 			// Construct 1st animator
 			$('#scianimator1').scianimator({
 				'images': Index.images_vis,
-				'height': 470,
-				'width': 640,
+				'width': '640',
 				'utf8': false
 			});
 			
 			// Construct 2nd animator
 			$('#scianimator2').scianimator({
 				'images': Index.images_ir,
-				'height': 470,
 				'width': 640,
 				'theme': 'dark'
 			});

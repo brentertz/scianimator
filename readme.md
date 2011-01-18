@@ -1,7 +1,7 @@
 # SciAnimator - Scientific Image Animator Plugin for jQuery #
 [http://github.com/brentertz/scianimator](http://github.com/brentertz/scianimator)
 
-Version: 1.3, Last updated: 1/3/2011
+Version: 1.4, Last updated: 1/18/2011
 
 SciAnimator provides a simple yet powerful interface for animating a series of images.
 
@@ -38,7 +38,6 @@ Select the element which will hold the animator. (Perhaps a `<div id="scianimato
 
 	$('#scianimator').scianimator({  
 		'images': ['images/foo.png', 'images/bar.png', 'images/bas.png', 'images/bat.png'],  
-		'height': 600,  
 		'width': 600,  
 		'theme': 'dark',  
 		'defaultFrame': 'last'
@@ -76,8 +75,7 @@ What settings/options are available?
 * <strong>delayMin:</strong> (default: 25) - Minimum delay between frames - milliseconds
 * <strong>delayMax:</strong> (default: 5000) - Maximum delay between frames - milliseconds
 * <strong>dwellMultiplier:</strong> (default: 2) - Multiplier used to auto-calculate the length of the dwell (pause on first/last frames) ~N*delay
-* <strong>height:</strong> (default: 600) - Height of canvas - pixels - not %
-* <strong>width:</strong> (default: 600) - Height of canvas - pixels - not %
+* <strong>width:</strong> (default: full width) - Width of container
 * <strong>theme:</strong> (default: light) - Can be any of the predefined CSS themes - light (default), dark, blue - or use null or '' for base styles only
 * <strong>utf8:</strong> (default: true), - Use UTF-8 labels where possible? eg) for symbols
 * <strong>loopMode:</strong> (default: loop), - Loop mode - loop, sweep, or none		
@@ -85,11 +83,6 @@ What settings/options are available?
 
 For more details, check out the code - look for:
 `$.fn.scianimator.defaults` in [http://github.com/brentertz/scianimator/assets/js/jquery.scianimator.js](jquery.scianimator.js).
-
-## Dependencies ##
-SciAnimator relies on the 3rd party 'ExplorerCanvas' script to provide HTML5 canvas element support to Internet Explorer < 9.  
-
-Please see [http://code.google.com/p/explorercanvas/](http://code.google.com/p/explorercanvas/) for more information.
 
 ## Support and Testing ##
 Information about what version or versions of jQuery this plugin has been tested with, what browsers it has been tested in, etc.
@@ -114,14 +107,13 @@ If your desired browser/version is not listed, it does not necessarily mean that
 Aside from resolving the KNOWN ISSUES, the following items are in consideration for future updates.  Feel free to recommend any of these or make additional suggestions.
 
 * Increase font size and decrease padding for elements using UTF8 icons
-* Support for `<br />` element or new line in controls list
+* Support for `<br />` element or new line in controls list - better to revise controls CSS using floats
 * Enable/disable controls as needed in UI - eg) max speed reached, disable +
 * Instrument with more status messages - eg) The image for frame 10 failed to load.  Reloading images.
 * Show failed images with alternate color
 * Dwell multiplier controls
 * Reload images from source button? (bypass cache)
 * Ability to inject a new set if images, without needing to create a new instance.
-* Image vs. Canvas option
 * Expose other methods/settings for override?
 * Refactor controls method into smaller pieces
 * Use jQueryUI icons option
@@ -132,6 +124,7 @@ Aside from resolving the KNOWN ISSUES, the following items are in consideration 
 * 1.1	- (12/21/2010) Added autoRefresh support, which can reload images from source at regular intervals, bypassing the browser cache. By default, autoRefresh is disabled.
 * 1.2	- (12/28/2010) Added keyboard control support. Decreased default delayStep. Updated IE conditional comment. Updated documentation.
 * 1.3	- (1/3/2011) Resolves issue with IE8 Canvas - Simply needed CSS -> display:block for canvas element
+* 1.4	- (1/18/2011) Refactored code to use plain img tags rather than the canvas element.  This removes the excanvas dependency and it now just works better in older browsers.  Also removed the height setting and made the width setting optional. If width is provided, it is now set on the primary container element, otherwise it will span the full available width.
 
 ## License ##
 Copyright (c) 2010 Brent Ertz  

@@ -18,9 +18,6 @@
 	margin-bottom: 1em;
 	position: relative;
 }
-.scianimator canvas {
-	display: block;
-}
 .scianimator .controls,
 .scianimator .control {
 	border: 1px solid;
@@ -33,8 +30,9 @@
 	position: relative;
 }
 .scianimator .controls {
-	margin: 0px;
+	margin: 0;
 	padding: 4px;
+	position: relative;
 }
 .scianimator a,
 .scianimator a:visited {

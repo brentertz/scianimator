@@ -51,9 +51,8 @@
 		'delayMin': 25, // Minimum delay - milliseconds
 		'delayMax': 5000, // Maximum delay - milliseconds
 		'dwellMultiplier': 2, // Used to autocalculate the length of the dwell (pause on first/last frames) ~N*delay
-		'height': 600, // Height of canvas - pixels - not %
-		'width': 600, // Height of canvas - pixels - not %
 		'theme': 'light', // Can be any of the predefined CSS themes - light (default), dark, blue - or use null or '' for base styles only
+		'width': null, // Optional - set width on container
 		'utf8': true, // Use UTF-8 labels where possible? eg) for symbols
 		'loopMode': CONSTANTS.LOOP_MODE_LOOP, // loop, sweep, none		
 		'labels': { // Labels used in UI controls
@@ -112,7 +111,7 @@
 				$(this).data('scianimator', {
 					id: $this[0].id,
 					target: $this,
-					context: null, // Canvas 2D drawing context
+					image: null, // Primary image element
 					animationTimer: null, // The timer used for animating the images
 					autoRefreshTimer: null, // The timer used for handling image auto-refresh from source
 					playMode: CONSTANTS.PLAY_MODE_STOPPED, // Play mode - Is the animation running?
@@ -129,7 +128,7 @@
 
 				$this.scianimator('loadImages', 'preload') // Preload images
 					.scianimator('container') // Initialize the container
-					.scianimator('canvas') // Initialize the canvas
+					.scianimator('image') // Initialize the main image
 					.scianimator('controls') // Initialize the controls
 					.scianimator('calculateDwell'); // Initialize the dwell
 			});
@@ -154,21 +153,21 @@
 		},			
 			
 		/**
-		 * Draw an image on the canvas
+		 * Draw an image - updates the animation display
 		 * @param frame - integer - frame number
 		 */
 		drawImage: function(frame) {
 			debug('drawImage');
 			
 			var $this = $(this);
-			var data = $this.data('scianimator');			
+			var data = $this.data('scianimator');
 			
 			frame = parseInt(frame, 10);
 			var image = data.frames[frame];
 					
-			$('<img />')
+			$(data.image)
 				.load(function() {
-					data.context.drawImage(this, 0, 0);
+					debug('Loaded image for frame #'+frame+' : '+image.src);
 				}).error(function() {
 					debug('Image failed to load for frame #'+frame+' : '+image.src);
 					$this.scianimator('enableDisable', {'frame':frame,'state':'disable'}); // Disable the frame for the image that failed	
@@ -176,7 +175,7 @@
 				.attr('src', image.src);
 			
 			return $this;
-		},
+		},		
 		
 		/**
 		 * Container
@@ -187,42 +186,38 @@
 			var $this = $(this);
 			var data = $this.data('scianimator');
 			
-			$this.addClass('scianimator').css('width',data.settings.width);
+			$this.addClass('scianimator');
 			if (data.settings.theme !== undefined)
 				$this.addClass(data.settings.theme);
+			if (data.settings.width !== undefined)
+				$this.css('width', data.settings.width);
 			
 			return $this;
 		},
 		
 		/**
-		 * Canvas - Initialize the canvas element
+		 * Image - Initialize the primary image element used to display the current frame
 		 */
-		canvas: function() {
-			debug('canvas');
+		image: function() {
+			debug('image');
 			
 			var $this = $(this);
-			var data = $this.data('scianimator');	
-		
-			var $canvas = $('<canvas />').attr('width',data.settings.width).attr('height',data.settings.height);
-			$this.append($canvas[0]);
+			var data = $this.data('scianimator');
 			
-			if ($.browser.msie && $.browser.version < 9)
-				G_vmlCanvasManager.initElement($canvas[0]); // Initialize canvas for IE - @see http://code.google.com/p/explorercanvas
-
-			if ($canvas[0].getContext) {
-			    data.context = $canvas[0].getContext('2d');
+			var $img = $('<img />');
+			$this.append($img[0]);
+			data.image = $img[0];
 			
-				// Display the default frame
-				if ('number' === typeof data.settings.defaultFrame)
-					$this.scianimator('goto', data.settings.defaultFrame);
-				else if ('last' === data.settings.defaultFrame)
-					$this.scianimator('last');
-				else
-					$this.scianimator('first');		    
-			}
-
+			// Display the default frame
+			if ('number' === typeof data.settings.defaultFrame)
+				$this.scianimator('goto', data.settings.defaultFrame);
+			else if ('last' === data.settings.defaultFrame)
+				$this.scianimator('last');
+			else
+				$this.scianimator('first');
+				
 			return $this;
-		},		
+		},
 			
 		/**
 		 * Controls
@@ -884,7 +879,7 @@
 			debug('refresh');
 			
 			var $this = $(this);
-			var data = $this.data('scianimator');			
+			var data = $this.data('scianimator');
 			
 			$this.scianimator('loadImages', 'refresh');
 		},
@@ -896,7 +891,7 @@
 		 * eg) $('#scianimator1').scianimator('showStatus', {status:'Hello Ladies...', timeout:3000});
 		 */
 		showStatus: function(params) {
-			debug('showStatus');			
+			debug('showStatus');
 
 			var $this = $(this);
 			var data = $this.data('scianimator');
@@ -917,7 +912,7 @@
 		 * Hide status - Hides the status indicator
 		 */
 		hideStatus: function() {
-			debug('hideStatus');			
+			debug('hideStatus');
 
 			var $this = $(this);
 			var data = $this.data('scianimator');
@@ -927,7 +922,7 @@
 			});
 			
 			return $this;
-		},		
+		},
 		
 		/**
 		 * List Images - Lists all of the images used in the animation
@@ -939,7 +934,7 @@
 			var $this = $(this);
 			var data = $this.data('scianimator');
 
-			return data.settings.images;						
+			return data.settings.images;
 		}
 	};
 
@@ -965,13 +960,13 @@
 		var qs = '';
 		if (pos != -1) // found ?
 		{
-			root = url.substring(0,pos); 
+			root = url.substring(0,pos);
 			qs = url.substring(pos);
 			qs = qs.replace(/[(?|&)]rand=[^&]+/g,'');
 		}
-		
+
 		url = root + ((qs.length) ? qs+'&' : qs+'?');
 		url += 'rand=' + Math.random();
-		return url;		
+		return url;
 	}
 })(jQuery);
