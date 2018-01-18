@@ -710,7 +710,7 @@
 			var $this = $(this);
 			var data = $this.data('scianimator');
 			
-			data.settings.delay = (data.settings.delay <= data.settings.delayMin) ? 0 : data.settings.delay;  
+			data.settings.delay = (data.settings.delay <= data.settings.delayMin) ? data.settings.delayMin : data.settings.delay;  
 			data.settings.delay += data.settings.delayStep;
 			data.settings.delay = (data.settings.delay > data.settings.delayMax) ? data.settings.delayMax : data.settings.delay; 
 			
